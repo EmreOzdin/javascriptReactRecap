@@ -90,32 +90,52 @@ console.log(myNum); */
 
 //? ÖRNEK-1 Boş Fonksiyon (void)
 
-function yazdır () {
-    console.log("merhaba");
-}
-yazdır();
+// function yazdır () {
+//     console.log("merhaba");
+// }
+// yazdır();
 
-console.log(yazdır); //* function
+// console.log(yazdır); //* function
 
 //*bişey döndürmeyen fonksiyonlara (returnsüz) void function denir
 
 //? ÖRNEK-2 Parametreli Fonksiyon
 
 //! Bir parametreyi çağırma sırasında kullanmaz isek onun yerine default parametre ile değer atayabiliriz ya da boş bırakabiliriz.
-function selamla (name, lastName=""){
-    console.log(`Merhaba ${name} ${lastName}`);
-}
+// function selamla (name, lastName=""){
+//     console.log(`Merhaba ${name} ${lastName}`);
+// }
 
-selamla (`Emre`, "Özdin");
-selamla (`Eren`, "Özdin");
-selamla (`Erdi`);
+// selamla (`Emre`, "Özdin");
+// selamla (`Eren`, "Özdin");
+// selamla (`Erdi`);
 
 //? ÖRNEK-3 Parametreli ve Dönüş Değerli Fonksiyon
 
 
-function yasHesapla (year, name) {
-    //     console.log(`${name}'in yaşı ${2022-year}'dir. `)
-    const mesaj = `${name}'in yaşı ${2022-year}'dir. `
-    return console.log(mesaj);;
-}
-yasHesapla(2001, "Elif")
+// function yasHesapla (year, name) {
+//     //     console.log(`${name}'in yaşı ${2022-year}'dir. `)
+//     const mesaj = `${name}'in yaşı ${new Date().getFullYear()-year}'dir. `
+//     return mesaj;
+// }
+// const mesaj1=yasHesapla(2001, "Elif")
+// console.log(mesaj1);
+
+//? ÖRNEK-4 Parametreli ve Dönüş Değerli Fonksiyon
+
+// let sonuc;
+// function tekCift(num){
+    
+//     // if (num%2) {
+//     //     sonuc=`${num} sayısı tektir.`
+//     // }else{
+//     //     sonuc= `${num} sayısı çifttir.`;
+//     // }
+//     // return(sonuc);
+
+//     return num%2 ? `${num} sayısı tektir.` : `${num} sayısı çifttir.`;
+// }
+
+
+// console.log(tekCift(11));
+// console.log(tekCift(98));
