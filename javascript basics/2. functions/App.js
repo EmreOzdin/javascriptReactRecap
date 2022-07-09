@@ -84,19 +84,10 @@ console.log(square(myNum));
 console.log(myNum); */
 
 
-let student = {};
+//******FUNCTION DECLARATION*********
 
-student.name = 'Mesut'
 
-function sayHi3(student){
-    console.log(`Hello! ${student.name} from entry point`);
-    student.name = 'Zeynep';
-    student.lastname = 'özgür';
-    console.log(`Hello! ${student.name} inside function`);
-    student = {name : "Leon"};
-    console.log(`Hello! ${student.name} inside function`);
+function yazdır () {
+    console.log("merhaba");
 }
-
-sayHi3(student)
-console.log(`Hello! ${student.name} from outside`); 
-console.log(`Hello! ${student.lastname} from outside`); 
+yazdır();
