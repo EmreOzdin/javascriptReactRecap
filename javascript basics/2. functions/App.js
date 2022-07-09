@@ -86,8 +86,36 @@ console.log(myNum); */
 
 //******FUNCTION DECLARATION*********
 
+//! DECLARATION
+
+//? ÖRNEK-1 Boş Fonksiyon (void)
 
 function yazdır () {
     console.log("merhaba");
 }
 yazdır();
+
+console.log(yazdır); //* function
+
+//*bişey döndürmeyen fonksiyonlara (returnsüz) void function denir
+
+//? ÖRNEK-2 Parametreli Fonksiyon
+
+//! Bir parametreyi çağırma sırasında kullanmaz isek onun yerine default parametre ile değer atayabiliriz ya da boş bırakabiliriz.
+function selamla (name, lastName=""){
+    console.log(`Merhaba ${name} ${lastName}`);
+}
+
+selamla (`Emre`, "Özdin");
+selamla (`Eren`, "Özdin");
+selamla (`Erdi`);
+
+//? ÖRNEK-3 Parametreli ve Dönüş Değerli Fonksiyon
+
+
+function yasHesapla (year, name) {
+    //     console.log(`${name}'in yaşı ${2022-year}'dir. `)
+    const mesaj = `${name}'in yaşı ${2022-year}'dir. `
+    return console.log(mesaj);;
+}
+yasHesapla(2001, "Elif")
