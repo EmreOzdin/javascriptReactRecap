@@ -47,4 +47,7 @@ console.log(sonYas, kisiler);
 //? DİZİYİ DEĞİŞTİREN (MUTATOR) METOTLAR
 //? =================================================================================
 
+const cars = ["BMW", "Porsche", "Mercedes", "Fiat"];
 
+const deleted = cars.pop();
+console.log(cars, "Silinen", deleted);
