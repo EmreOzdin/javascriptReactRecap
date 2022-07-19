@@ -22,5 +22,29 @@ console.log(numbers);
 const sayilar = new Array (10); // 10 elemanlık boş bir array oluşturdu
 console.log(sayilar);
 
+//* Diziden Veri Okuma-Yazma
+//* ----------------------------------------------------------------------------------------------
+
+//! Okuma
+const java = diller[1];
+console.log(java);
+
+isimler[2] = "Canan";
+
+console.log(isimler);
+
+// isimler = ["can", "canan", "cavidan"]; //! Uncaught TypeError: Assignment to constant variable
+
+const yaslar = [22, 18, 15];
+const kisiler = ["Ahmet", "Yilmaz", 2022, 2022 - 1970, true, 5.6, yaslar];
+console.log(kisiler);
+console.log(kisiler[6][1]);
+
+const sonYas = ++kisiler [6][2];
+console.log(sonYas, kisiler);
+
+//? =================================================================================
+//? DİZİYİ DEĞİŞTİREN (MUTATOR) METOTLAR
+//? =================================================================================
 
 
