@@ -89,12 +89,125 @@ const kisi = {
     yasHesapla: function(){
         return new Date().getFullYear() - this.dogum;
     },
-    // ozet: function(){
-    //     return `${this.ad} ${this.yasHesapla()} yasındadır`;
-    // },
-    ozet: ()=> {
+    ozet: function(){
         return `${this.ad} ${this.yasHesapla()} yasındadır`;
     },
+    // ozet: ()=> {
+    //     console.log(this);
+    //     return `${this.ad} ${this.yasHesapla()} yasındadır`;
+    // },
 }
 console.log("YAS: " + kisi.yasHesapla());
 console.log("BILGI: " + kisi.ozet());
+
+//! NOT: arrow fonksiyonları farklı amaç için geliştirilmiş fonksiyonlardır.
+//! ve lexical context'e sahiptirler. Dolayısıyla, bir arrow fonk. içerir.
+//! this kelimesi kullnılırsa beklenmeyen sonuclar alabiliriz.
+//! Çünkü, arrow içerisindeki this kelimesi global scope'u gösterir. (windows nesnesini) gösterir.
+//! Bunu engellemek için object fonksiyonlarını tanımlamak için normal fonk. yöntemlerini kullanmak gerekir.
+
+//* =========================================================
+//*                  OBJECTS ITERATION
+//* =========================================================
+
+//? Nested Objects
+const kisilerObject = { 
+ahmet: {
+    ad: "Ahmet",
+    soyad: "Yilmaz",
+    yas: 30,
+    is: "developer",
+    diller: ["C", "C++", "Python", "JS"],
+    maas: 120000,},
+mehmet: {
+    ad: "Mehmet",
+    soyad: "Yilmaz",
+    yas: 24,
+    is: "developer",
+    diller: ["C", "C++", "Python", "JS"],
+    maas: 200000,} 
+}
+
+console.log(kisilerObject);
+console.log(kisilerObject.ahmet.is);
+
+//? JSON (JavaScript Object Notation) 
+
+const kisiler= [ 
+    {
+        ad: "Ahmet",
+        soyad: "Yilmaz",
+        yas: 30,
+        is: "developer",
+    },
+    {
+        ad: "Mehmet",
+        soyad: "Yilmaz",
+        yas: 20,
+        is: "team lead",
+    },
+    {
+        ad: "Canan",
+        soyad: "Yilmaz",
+        yas: 22,
+        is: "developer",
+    },
+    {
+        ad: "Can",
+        soyad: "Yilmaz",
+        yas: 27,
+        is: "tester",
+    }, 
+];
+console.log(kisiler);
+console.log(kisiler[3]); //? ad: 'Can', soyad: 'Yilmaz', yas: 24, is: 'developer'}
+
+//* Örnek1: kisiler dizisindeki job.ları tek tek yazdırınız.
+kisiler.forEach((kisi) => console.log(kisi.is));
+
+//* Örnek2 : yaslari bir artirarak yeni bir diziye saklayiniz.
+
+kisiler.forEach((kisi) => console.log(kisi.yas + 1));
+const yaslar = kisiler.map((kisi) => kisi.yas + 1);
+console.log(yaslar);
+
+//* Örnek 3: ad ve soyadları birleştirip büyük harfe çeviren ve 
+//* bunu ad key'i olarak saklayan, aynı zamanda yas degerlerini 
+//* 5 artırarak yas key'i olarak saklayan bir dizi oluşturunuz.
+
+const adSoyad = kisiler.map((kisi) => ({
+        ad: kisi.ad.toUpperCase()+ " " + kisi.soyad.toUpperCase(),
+        yas: kisi.yas + 5,
+    }
+));
+
+//* ALTERNATİF SYNTAX
+
+const adSoyad1 = kisiler.map((kisi) => {
+    return {
+    ad: kisi.ad.toUpperCase()+ " " + kisi.soyad.toUpperCase(),
+    yas: kisi.yas + 5,
+        }
+    }
+);
+
+console.log(adSoyad);
+console.log(adSoyad1);
+
+//* Örnek 4: yası 33ten küçük olan kisilerin adlasını listeleyiniz.
+const kucuk33 = kisiler.filter((kisi) => kisi.yas < 33).forEach(kisi => console.log(kisi.ad));
+
+
+//* Örnek 5: 33 yaşından küçüklerin isimlerini diziye saklayiniz.
+
+const kucuk33Isim = kisiler.filter((kisi) => kisi.yas < 33).forEach(kisi => console.log(kisi.ad));
+
+//* Örnek 6: Mesleği developer olanlarin isim ve yaslarini obje olarak
+//* saklayan bir dizi oluşturunuz.
+
+const developer = kisiler.filter((kisi) => kisi.is === "developer");
+console.log(developer);
+
+//* Örnek 7: kisilerin ortalama yasini hesaplayiniz.
+const ortalamaYas = kisiler.reduce((toplam, kisi) => toplam + kisi.yas, 0) / kisiler.length;
+console.log(ortalamaYas);
