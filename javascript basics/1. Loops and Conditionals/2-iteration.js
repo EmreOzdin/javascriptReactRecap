@@ -119,3 +119,18 @@ console.log(zamli);
 const buyuk4000 = maaslar.filter((f) => f > 4000).map((f) => f + (f*0.25));
 
 console.log(buyuk4000);
+
+//* =========================================================
+//*                        REDUCE METHOD
+//* =========================================================
+
+//* Maaş toplamını konsola yazdırınız.
+
+const toplam2 = maaslar.reduce((a, b) => a + b);
+console.log(toplam2);
+
+//* maaşı ortalamanın altında olanlara %20 zam yapınız.
+
+const ortalama = maaslar.reduce((a, b) => a + b) / maaslar.length;
+
+console.log(ortalama);
