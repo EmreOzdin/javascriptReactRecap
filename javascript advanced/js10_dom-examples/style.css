@@ -1,11 +1,9 @@
-section button {
+section button{
   width: 5rem;
   height: 2.3rem;
 }
-section .diller {
-  width: 20rem;
+section .diller{
   height: 2.3rem;
+  width: 20rem;
 }
-.red {
-  color: red;
-}
+
