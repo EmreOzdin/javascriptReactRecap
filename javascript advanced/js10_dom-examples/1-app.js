@@ -28,5 +28,17 @@ ekleBtn.onclick = function () {
     }else{
         ul.innerHTML += `<li>${dilInput.value}</li>`;
         dilInput.value = "";
+        javascriptKontrol();
     };
+};
+
+const javascriptKontrol = () => {
+    document.querySelectorAll("ul li").forEach((dil) => {
+        const kucukHarf = dil.innerHTML.toLowerCase();
+        if (kucukHarf === "javascript") {
+            //dil.className = "red";
+            //? Alternatif Yöntem
+            dil.setAttribute("class", "red");
+        }
+    });
 };
