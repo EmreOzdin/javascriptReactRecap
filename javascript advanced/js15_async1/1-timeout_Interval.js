@@ -18,20 +18,18 @@
 
 //* Senkron
 //* ---------------------------------------------------------------
-
 // const bekle = (ms) => {
-//     //! blocking code
-//     const start  = new Date().getTime();
-//     while (new Date().getTime() < start + ms) {
-//         ;
-//     }
-// }
-// console.log("hello");
-// // alert("ITF"); //! blocking code
-// console.time("timer")
+//   //! blocking-code
+//   const start = new Date().getTime();
+//   while (new Date().getTime() < start + ms) {}
+// };
+
+// console.log('hello');
+// // alert('ITF'); //! blocking-code
+// console.time('timer');
 // bekle(3000);
-// console.timeEnd("timer");
-// console.log("FS11");
+// console.timeEnd('timer');
+// console.log('FS11');
 
 //* Asenkron (setTimeout)
 //* ---------------------------------------------------------------
@@ -66,20 +64,30 @@
 
 // console.log('Counter Finished');
 
+//! Callback Hell (nested ve birbirine bagli callback'ler)
 //!-----------------------------------------------------------------
 //* Eger birbirine bagimli asenkron kodlarin yazilmasi gerekirse,nested callback
 //* yapisinin kullanilmasi gerekebilir. Fakta bu iyi bir programlama yaklasimi degildir.
 // !callback hell olarak adlandirilan bu yapinin anlasilmasi ve surdurulebilirligi oldukca zordur.
 
 setTimeout(() => {
-    console.log('john:Hi');
+  console.log('john:Hi');
+  setTimeout(() => {
+    console.log('Sarah: Hello');
     setTimeout(() => {
-        console.log('Sarah: Hello');
-        setTimeout(() => {
-            console.log('John: How Are you?');
-            setTimeout(() => {
-                console.log('Sarah:Fine and you?');
-        }, 1000);
+      console.log('John: How Are you?');
+      setTimeout(() => {
+        console.log('Sarah:Fine and you?');
       }, 1000);
     }, 1000);
   }, 1000);
+}, 1000);
+
+//? COZUMLER:
+//?----------------------------------------------------------------
+//* 1- XMLHttpRequest (Eski yontem, Ornek: AJAX)
+//? https://developer.mozilla.org/en-US/docs/Web/API/XMLHttpRequest
+//* 2- Promise,
+//! 3- Fetch API (Promise'in basitlestirilmis hali),
+//! 4- ASYNC-AWAIT (Fetch API'nin makyajlanmis hali)
+
