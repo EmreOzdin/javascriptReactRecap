@@ -10,7 +10,7 @@
 //? fetch() fonksiyonu veri getirmek istediginiz kaynagin yolunu gosteren zorunlu
 //? bir parametre almaktadir ve bu istegin cevabini gosteren bir Promise dondurmektedir.
 
-fetch('https://api.github.com/user')
+fetch('https://api.github.com/users')
   .then((res) => {
     //! error handling
     if (!res.ok) {
