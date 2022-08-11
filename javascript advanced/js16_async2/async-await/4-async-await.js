@@ -18,41 +18,27 @@
 //* satirdaki kodun durudurulmasini saglar. Yapilan istek yerine getirilip sonuc
 //* degerlerinin dondurulmesine ile kodun calismasi devam eder.
 
-let hata = false;
-const getUsers = async function () {
-  try {
-    const res = await fetch('https://api.github.com/users');
-    if (!res.ok) {
-      hata = true;
-      // throw new Error(`Something went wrong:${res.status}`);
-    }
-    const data = await res.json();
-    updateDom(data);
-  } catch (error) {
-    console.log(error);
-  } finally {
-    hata = false;
+lfetch('https://api.github.com/users')
+.then((res) => {
+  //! error handling
+  if (!res.ok) {
+    throw new Error(`Something went wrong: ${res.status}`);
   }
-};
-
-getUsers();
+  return res.json();
+})
+.then((data) => updateDom(data))
+.catch((err) => console.log(err));
 
 const updateDom = (data) => {
-  const userDiv = document.querySelector('.users');
+const userDiv = document.querySelector('.users');
 
-  if (hata) {
-    userDiv.innerHTML = `<h1 class="text-danger">Data can not be fetched</h1>
-    <img src="./img/404.png" alt="" />
-    `;
-  } else {
-    data.forEach((user) => {
-      //!destr
-      const { login, avatar_url, html_url } = user;
-      userDiv.innerHTML += `
-    <h2 class="text-warning">NAME:${login}</h2>
-    <img src=${avatar_url} width="50%" alt="" />
-    <h3>HTML_URL:${html_url}</h3>
-  `;
-    });
-  }
+data.forEach((user) => {
+  //!destr
+  const { login, avatar_url, html_url } = user;
+  userDiv.innerHTML += `
+  <h2 class="text-warning">NAME:${login}</h2>
+  <img src=${avatar_url} width="50%" alt="" />
+  <h3>HTML_URL:${html_url}</h3>
+`;
+});
 };
