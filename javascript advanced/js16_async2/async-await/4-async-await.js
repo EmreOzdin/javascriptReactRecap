@@ -15,22 +15,34 @@
 //* kod yazmayı mumkun kilar.
 
 //* Await, promise-temelli herhangi bir fonksiyonun onune getirilerek getirildigi
-//* satirdaki kodun durudurulmasini saglar. Yapilan istek yerine getirilip sonuc
+//* satirdaki kodun durdurulmasini saglar. Yapilan istek yerine getirilip sonuc
 //* degerlerinin dondurulmesine ile kodun calismasi devam eder.
 
-lfetch('https://api.github.com/users')
-.then((res) => {
-  //! error handling
-  if (!res.ok) {
-    throw new Error(`Something went wrong: ${res.status}`);
+let hata = false;
+const getUsers = async function () {
+  try {
+    const res = await fetch('https://api.github.com/users');
+  if(!res.ok) {
+    hata = true;
+    // throw new Error(`Something went wrong: ${res.status}`);
   }
-  return res.json();
-})
-.then((data) => updateDom(data))
-.catch((err) => console.log(err));
+
+  const data = await res.json();
+  updateDom(data);
+
+  } catch (error) {
+    console.log(error);
+  }
+};
+
+getUsers();
 
 const updateDom = (data) => {
 const userDiv = document.querySelector('.users');
+  if(hata) {
+    userDiv.innerHTML = `<h1 class="text-danger">Data can not be fetched</h1>
+    <img src="./img/404.png" alt=""/>`;
+  } else {
 
 data.forEach((user) => {
   //!destr
@@ -40,5 +52,6 @@ data.forEach((user) => {
   <img src=${avatar_url} width="50%" alt="" />
   <h3>HTML_URL:${html_url}</h3>
 `;
-});
+    });
+  };
 };
