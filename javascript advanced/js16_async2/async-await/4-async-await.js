@@ -32,6 +32,8 @@ const getUsers = async function () {
 
   } catch (error) {
     console.log(error);
+  } finally {
+    hata = false;
   }
 };
 
