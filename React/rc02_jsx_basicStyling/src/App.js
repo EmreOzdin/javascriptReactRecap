@@ -1,25 +1,25 @@
-//? App componenti index.js dosyasinda cagrilir.
-//? React, JSX kullanmaktadır.
-//? JSX'de, HTML elementleri doğrudan JS içerisinde kullanılabilir.
+//? React,JSX kullanmaktadir.
+//? JSX'de, HTMl elementleri dogrudan JS icerisinde kullanilabilir
 
-//! Componentler, HTML, CSS ve JS kodlarından meydana gelmiş
-//! bir kod parçasıdır.
+import Content from './Content';
+import Footer from './Footer';
+import Header from './Header';
 
-//! Bir componentin return () kısmı ise JSX kodları içerir.
+//! Componentler, HTML,CSS ve JS kodlarindan meydana gelmiş
+//! bir kod parcacigidir.
 
-//! JSX'in kendine göre bazi kuralları vardır. Örneğin bir
-//! component eger birden fazla HTML elementi dondurmesi 
-//! gerekirse bunlari tek bir container elemanı ile 
-//! sarmallayarak döndürmelidir. container için div, article,
-//! header, <> vb. herhangi bir element kullanılabilir.
+//! Bir componentin return () kismi ise JSX kodlari icerir.
 
-//? App componenti tanımlanması
+//! JSX'in kendine gore bazi kurallari vardir. Ornegin bir
+//! component eger birden fazla html elementi dondurmesi
+//! gerekirse bunlari tek bir container elemani ile sarmayalarak
+//! dondurmelidir.container icin div, article, header, <> v.b
+//! herhangi bir element kullanilabilir.
 
-import Content from './Content.jsx';
-import Footer from './Footer.jsx';
-import Header from './Header.jsx';
-
+//? App componentinin tanimlanmasi
 function App() {
+  //* JSX
+  //? stillendirme yapilmayacaksa container icin <> kullanilabilir
   return (
     <>
       <Header />
@@ -27,7 +27,6 @@ function App() {
       <Footer />
     </>
   );
-};
-
+}
 
 export default App;
