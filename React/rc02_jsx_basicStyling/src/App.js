@@ -15,6 +15,7 @@
 
 //? App componenti tanımlanması
 
+import Content from './Content.jsx';
 import Footer from './Footer.jsx';
 import Header from './Header.jsx';
 
@@ -22,6 +23,7 @@ function App() {
   return (
     <>
       <Header />
+      <Content />
       <Footer />
     </>
   );
