@@ -1,0 +1,11 @@
+.title{
+    text-align: center;
+    color: white;
+    background-color: red;
+}
+
+.images{
+    display: block;
+    margin: 1 rem auto;
+    width: 300px;
+}
