@@ -9,7 +9,7 @@ function App() {
   return (
     <>
       <Header />
-      <Card data={data} />
+      <Card />
       <Footer />
     </>
   );
